@@ -1,0 +1,25 @@
+---
+import Navbar from "../components/NavBar.astro";
+import ThemeButton from "../components/ThemeButton.astro";
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/gator.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script src="https://unpkg.com/feather-icons"></script></head
+  >
+
+  <body class="bg-white dark:bg-black dark:text-white text-black font-sans">
+    <ThemeButton />
+    <Navbar />
+    <main class="flex flex-col justify-center items-center h-screen">
+      <slot />
+    </main>
+    <!-- <script src="index.js"></script> -->
+  </body>
+</html>

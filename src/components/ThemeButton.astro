@@ -1,0 +1,37 @@
+---
+import Sun from 'astro-heroicons/outline/Sun.astro'
+import Moon from 'astro-heroicons/outline/Moon.astro'
+---
+
+<button
+  class="absolute top-2 right-2 bg-white dark:bg-black h-10 w-10 rounded-full cursor-pointer border border-black dark:border-white"
+  id="themeToggle"
+>
+  <Sun class="dark:hidden absolute inset-0" />
+  <Moon class="hidden dark:block absolute inset-0" />
+</button>
+
+<script is:inline>
+  // Set "light" theme as default
+  if (!localStorage.theme) {
+    localStorage.theme = "light";
+  }
+
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
+  // Find the theme toggle button on the page.
+  const themeButton = document.getElementById('themeToggle');
+
+  // Handle clicks on the button.
+  themeButton.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  });
+</script>
