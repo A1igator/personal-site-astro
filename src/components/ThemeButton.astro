@@ -4,11 +4,11 @@ import Moon from 'astro-heroicons/outline/Moon.astro'
 ---
 
 <button
-  class="absolute top-2 right-2 bg-white dark:bg-black h-10 w-10 rounded-full cursor-pointer border border-black dark:border-white"
+  class="absolute top-2 right-2 bg-white dark:bg-black h-10 w-10 rounded-full cursor-pointer border border-black dark:border-white flex justify-center items-center"
   id="themeToggle"
 >
-  <Sun class="dark:hidden absolute inset-0" />
-  <Moon class="hidden dark:block absolute inset-0" />
+  <Sun class="dark:hidden inset-0 w-6 h-6" />
+  <Moon class="hidden dark:block inset-0 w-6 h-6" />
 </button>
 
 <script is:inline>
