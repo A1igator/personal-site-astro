@@ -1,4 +1,6 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
 ---
 
 <nav>
@@ -6,13 +8,31 @@
     class="absolute flex m-0 justify-start list-none p-2 bg-white dark:bg-black text-white dark:text-black border border-gray-400"
   >
     <li class="px-2 py-1">
-      <a href="/" class="text-gray-400 no-underline text-sm">Home</a>
+      <a
+        href="/"
+        class:list={[
+          "text-gray-400 no-underline text-sm",
+          currentPath === "" ? "!text-black dark:!text-white" : "",
+        ]}>Home</a
+      >
     </li>
     <li class="px-2 py-1">
-      <a href="/blog" class="text-gray-400 no-underline text-sm">Blog</a>
+      <a
+        href="/blog"
+        class:list={[
+          "text-gray-400 no-underline text-sm",
+          currentPath === "blog" ? "!text-black dark:!text-white" : "",
+        ]}>Blog</a
+      >
     </li>
     <li class="px-2 py-1">
-      <a href="../../public/resume.pdf" class="text-gray-400 no-underline text-sm">Resume</a>
+      <a
+        href="/resume"
+        class:list={[
+          "text-gray-400 no-underline text-sm",
+          currentPath === "resume" ? "!text-black dark:!text-white" : "",
+        ]}>Resume</a
+      >
     </li>
   </ul>
 </nav>

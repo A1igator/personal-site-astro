@@ -1,5 +1,12 @@
 ---
+// import Preview from "../components/SamplePDF";
+import { Image } from "astro:assets";
+import resume from "../../static/resume.png";
 import SiteLayout from "../layouts/SiteLayout.astro";
 ---
 
-<SiteLayout />
+<SiteLayout title="Resume">
+  <a href="../../static/resume.pdf">
+    <Image class="mt-24 border border-gray-400" src={resume} alt="resume" />
+  </a>
+</SiteLayout>

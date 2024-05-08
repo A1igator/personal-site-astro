@@ -1,32 +1,37 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import CenterVerticallyLayout from "../layouts/CenterVerticallyLayout.astro";
 ---
 
 <SiteLayout title="Home">
-  <h1 id="name" class="text-9xl hidden dark:block">Gator</h1>
-  <h1 id="name" class="text-9xl dark:hidden">Ali Abdoli</h1>
-  <img
-    id="gatorImg"
-    class="rounded-full hidden dark:block"
-    width="200"
-    height="200"
-    src="images/gator.png"
-    alt="Avatar"
-  />
-  <img
-    id="aliImg"
-    class="rounded-full dark:hidden"
-    width="200"
-    height="200"
-    src="images/Ali A.jpeg"
-    alt="Avatar"
-  />
-  <h2 id="quote" class="text-xl dark:hidden">
-    “If you want to build a ship, don't drum up the men to gather wood, divide
-    the work, and give orders. Instead, teach them to yearn for the vast and
-    endless sea.” ― Antoine de Saint-Exupéry
-  </h2>
-  <h2 id="quote" class="text-xl hidden dark:block">
-    “One must imagine Sisyphus happy.” ― Albert Camus
-  </h2>
+  <CenterVerticallyLayout>
+    <div id="name" class="lg:text-9xl hidden dark:block text-6xl">Gator</div>
+    <div id="name" class="lg:text-9xl dark:hidden text-6xl">Ali Abdoli</div>
+    <img
+      id="gatorImg"
+      class="rounded-full hidden dark:block"
+      width="200"
+      height="200"
+      src="static/gator.png"
+      alt="Avatar"
+    />
+    <img
+      id="aliImg"
+      class="rounded-full dark:hidden"
+      width="200"
+      height="200"
+      src="static/Ali A.jpeg"
+      alt="Avatar"
+    />
+    <div id="quote" class="lg:text-xl dark:hidden text-center text-sm">
+      “If you want to build a ship, don't drum up the men to gather wood, divide
+      the work, and give orders. Instead, teach them to yearn for the vast and
+      endless sea.”<br />
+      ― Antoine de Saint-Exupéry
+    </div>
+    <div id="quote" class="lg:text-xl hidden dark:block text-center text-sm">
+      “One must imagine Sisyphus happy.”<br />
+      ― Albert Camus
+    </div>
+  </CenterVerticallyLayout>
 </SiteLayout>
