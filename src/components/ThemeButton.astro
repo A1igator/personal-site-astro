@@ -1,6 +1,6 @@
 ---
-import Sun from 'astro-heroicons/outline/Sun.astro'
-import Moon from 'astro-heroicons/outline/Moon.astro'
+import Sun from "astro-heroicons/outline/Sun.astro";
+import Moon from "astro-heroicons/outline/Moon.astro";
 ---
 
 <button
@@ -12,26 +12,46 @@ import Moon from 'astro-heroicons/outline/Moon.astro'
 </button>
 
 <script is:inline>
+  const changeFavicon = (link) => {
+    let $favicon = document.querySelector('link[rel="icon"]');
+    // If a <link rel="icon"> element already exists,
+    // change its href to the given link.
+    if ($favicon !== null) {
+      $favicon.href = link;
+      // Otherwise, create a new element and append it to <head>.
+    } else {
+      $favicon = document.createElement("link");
+      $favicon.rel = "icon";
+      $favicon.href = link;
+      document.head.appendChild($favicon);
+    }
+  };
   // Set "light" theme as default
   if (!localStorage.theme) {
     localStorage.theme = "light";
   }
 
   if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add("dark");
   } else {
-    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.remove("dark");
   }
 
+  const isDarkInitial = document.documentElement.classList.contains("dark");
+  changeFavicon(isDarkInitial ? "/gator.ico" : "/aliabdoli.ico");
+
   // Find the theme toggle button on the page.
-  const themeButton = document.getElementById('themeToggle');
+  const themeButton = document.getElementById("themeToggle");
 
   // Handle clicks on the button.
-  themeButton.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  themeButton.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    document.documentElement.classList.toggle("dark");
+    changeFavicon(isDark ? "/aliabdoli.ico" : "/gator.ico");
+    localStorage.theme = isDark ? "dark" : "light";
   });
 </script>

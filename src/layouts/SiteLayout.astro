@@ -8,14 +8,13 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/gator.ico" />
+    <link rel="icon" type="image/svg+xml" href="/aliabdoli.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <script src="https://unpkg.com/feather-icons"></script></head
+  </head><body
+    class="bg-white dark:bg-black dark:text-white text-black font-sans"
   >
-
-  <body class="bg-white dark:bg-black dark:text-white text-black font-sans">
     <ThemeButton />
     <Navbar />
     <main class="flex flex-col items-center">
@@ -24,6 +23,5 @@ const { title } = Astro.props;
       </div>
     </main>
     <Footer />
-    <!-- <script src="index.js"></script> -->
   </body>
 </html>
