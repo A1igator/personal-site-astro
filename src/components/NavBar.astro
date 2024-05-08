@@ -21,7 +21,7 @@ const currentPath = pathname.slice(1);
         href="/blog"
         class:list={[
           "text-gray-400 no-underline text-sm",
-          currentPath === "blog" ? "!text-black dark:!text-white" : "",
+          currentPath === "blog/" ? "!text-black dark:!text-white" : "",
         ]}>Blog</a
       >
     </li>
@@ -30,7 +30,7 @@ const currentPath = pathname.slice(1);
         href="/resume"
         class:list={[
           "text-gray-400 no-underline text-sm",
-          currentPath === "resume" ? "!text-black dark:!text-white" : "",
+          currentPath === "resume/" ? "!text-black dark:!text-white" : "",
         ]}>Resume</a
       >
     </li>

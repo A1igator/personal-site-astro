@@ -7,5 +7,4 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   integrations: [icon(), tailwind(), mdx()],
   site: "https://A1igator.github.io",
-  base: "",
 });
