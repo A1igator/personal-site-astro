@@ -4,11 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <SiteLayout title={frontmatter.title}>
-  <article class="prose dark:prose-invert mt-44">
-    <!-- <p>{frontmatter.pubDate.slice(0, 10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p> -->
-    <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
+  <article class="prose dark:prose-invert mt-20">
     <slot />
   </article>
 </SiteLayout>

@@ -1,25 +1,22 @@
 ---
-import CenterVerticallyLayout from "../layouts/CenterVerticallyLayout.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 const allPosts = await Astro.glob("./content/*.mdx");
 ---
 
 <SiteLayout title="Blog">
-  <CenterVerticallyLayout>
-    <ul class="flex flex-col space-y-4">
-      {
-        allPosts.map((post) => (
-          <li class="flex flex-col space-y-2  ">
-            <a
-              class="text-blue-600 dark:text-blue-500 hover:underline text-2xl"
-              href={post.url}
-            >
-              {post.frontmatter.title}
-            </a>
-            <div>{post.frontmatter.description}</div>
-          </li>
-        ))
-      }
-    </ul>
-  </CenterVerticallyLayout>
+  <ul class="flex flex-col space-y-4">
+    {
+      allPosts.map((post) => (
+        <li class="flex flex-col space-y-2  ">
+          <a
+            class="text-blue-600 dark:text-blue-500 hover:underline text-2xl"
+            href={post.url}
+          >
+            {post.frontmatter.title}
+          </a>
+          <div>{post.frontmatter.description}</div>
+        </li>
+      ))
+    }
+  </ul>
 </SiteLayout>

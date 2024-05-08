@@ -49,9 +49,9 @@ import Moon from "astro-heroicons/outline/Moon.astro";
 
   // Handle clicks on the button.
   themeButton.addEventListener("click", () => {
-    const isDark = document.documentElement.classList.contains("dark");
     document.documentElement.classList.toggle("dark");
-    changeFavicon(isDark ? "/aliabdoli.ico" : "/gator.ico");
+    const isDark = document.documentElement.classList.contains("dark");
+    changeFavicon(isDark ? "/gator.ico" : "/aliabdoli.ico");
     localStorage.theme = isDark ? "dark" : "light";
   });
 </script>
