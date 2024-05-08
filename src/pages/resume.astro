@@ -1,11 +1,21 @@
 ---
 import { Image } from "astro:assets";
 import resume from "../../static/resume.png";
+import resumeFlipped from "../../static/resumeFliped.png";
 import SiteLayout from "../layouts/SiteLayout.astro";
 ---
 
 <SiteLayout title="Resume">
   <a href="../../static/resume.pdf">
-    <Image class="md:mt-24 border border-gray-400" src={resume} alt="resume" />
+    <Image
+      class="md:mt-24 border border-gray-400 dark:hidden"
+      src={resume}
+      alt="resume"
+    />
+    <Image
+      class="md:mt-24 border border-gray-400 hidden dark:block"
+      src={resumeFlipped}
+      alt="resume"
+    />
   </a>
 </SiteLayout>
