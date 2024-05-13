@@ -7,9 +7,4 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   integrations: [icon(), tailwind(), mdx()],
   site: "https://www.aliabdoli.com",
-  build: {
-    rollupOptions: {
-      external: ["@astrojs/rss"],
-    },
-  },
 });
