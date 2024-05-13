@@ -6,5 +6,5 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   integrations: [icon(), tailwind(), mdx()],
-  site: "https://A1igator.github.io",
+  site: "https://www.aliabdoli.com",
 });
