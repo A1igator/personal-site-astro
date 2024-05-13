@@ -9,14 +9,20 @@ const url = Astro.request.url;
   <article class="prose dark:prose-invert mt-20">
     <div class="flex justify-between">
       <h1>{frontmatter.title}</h1>
-      <button
-        class="w-9 h-9"
-        id="shareButton"
-        data-url={url}
-        data-title={frontmatter.title}
-      >
-        <Share class="w-9 h-9" />
-      </button>
+      <div class="relative group">
+        <button
+          class="w-9 h-9"
+          id="shareButton"
+          data-url={url}
+          data-title={frontmatter.title}
+        >
+          <Share class="w-9 h-9" />
+        </button>
+        <span
+          class="hidden absolute bottom-full left-1/2 transform -translate-x-1/2 px-2 py-1 text-sm text-white bg-black rounded"
+          id="tooltipText">Copy to clipboard</span
+        >
+      </div>
     </div>
     <img
       src={frontmatter.img}
@@ -32,6 +38,18 @@ const url = Astro.request.url;
   const shareButton = document.getElementById("shareButton");
   const url = shareButton.getAttribute("data-url");
   const title = shareButton.getAttribute("data-title");
+  const tooltipText = document.getElementById("tooltipText");
+
+  if (!navigator.share) {
+    shareButton.addEventListener("mouseover", () => {
+      tooltipText.classList.remove("hidden");
+    });
+
+    shareButton.addEventListener("mouseout", () => {
+      tooltipText.classList.add("hidden");
+    });
+  }
+
   shareButton.addEventListener("click", () => {
     if (navigator.share) {
       navigator
@@ -41,8 +59,17 @@ const url = Astro.request.url;
         })
         .catch(console.error);
     } else {
-      console.log("Web Share API is not supported in your browser.");
-      navigator.clipboard.writeText(url);
+      navigator.clipboard.writeText(url).then(
+        () => {
+          tooltipText.textContent = "URL copied!";
+          setTimeout(() => {
+            tooltipText.textContent = "Copy to clipboard";
+          }, 2000);
+        },
+        (err) => {
+          console.error("Could not copy text: ", err);
+        }
+      );
     }
   });
 </script>
