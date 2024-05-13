@@ -19,7 +19,7 @@ const url = Astro.request.url;
           <Share class="w-9 h-9" />
         </button>
         <span
-          class="hidden absolute bottom-full left-1/2 transform -translate-x-1/2 px-2 py-1 text-sm text-white bg-black rounded"
+          class="hidden absolute bottom-full left-1/2 transform -translate-x-1/2 px-2 py-1 text-sm text-white bg-black dark:text-black dark:bg-white"
           id="tooltipText">Copy to clipboard</span
         >
       </div>
@@ -36,40 +36,48 @@ const url = Astro.request.url;
 
 <script>
   const shareButton = document.getElementById("shareButton");
-  const url = shareButton.getAttribute("data-url");
-  const title = shareButton.getAttribute("data-title");
-  const tooltipText = document.getElementById("tooltipText");
+  if (shareButton !== null) {
+    const url = shareButton.getAttribute("data-url");
+    const title = shareButton.getAttribute("data-title");
+    const tooltipText = document.getElementById("tooltipText");
 
-  if (!navigator.share) {
-    shareButton.addEventListener("mouseover", () => {
-      tooltipText.classList.remove("hidden");
-    });
+    if (url !== null && title !== null && tooltipText !== null) {
+      if (!navigator.share) {
+        shareButton.addEventListener("mouseover", () => {
+          tooltipText.classList.remove("hidden");
+        });
 
-    shareButton.addEventListener("mouseout", () => {
-      tooltipText.classList.add("hidden");
-    });
-  }
+        shareButton.addEventListener("mouseout", () => {
+          tooltipText.classList.add("hidden");
+        });
+      }
 
-  shareButton.addEventListener("click", () => {
-    if (navigator.share) {
-      navigator
-        .share({
-          title: title,
-          url: url,
-        })
-        .catch(console.error);
-    } else {
-      navigator.clipboard.writeText(url).then(
-        () => {
-          tooltipText.textContent = "URL copied!";
-          setTimeout(() => {
-            tooltipText.textContent = "Copy to clipboard";
-          }, 2000);
-        },
-        (err) => {
-          console.error("Could not copy text: ", err);
+      shareButton.addEventListener("click", () => {
+        if (navigator.share) {
+          navigator
+            .share({
+              title: title ?? "",
+              url: url ?? "",
+            })
+            .catch(console.error);
+        } else {
+          navigator.clipboard.writeText(url ?? "").then(
+            () => {
+              if (tooltipText) {
+                tooltipText.textContent = "URL copied!";
+              }
+              setTimeout(() => {
+                if (tooltipText) {
+                  tooltipText.textContent = "Copy to clipboard";
+                }
+              }, 2000);
+            },
+            (err) => {
+              console.error("Could not copy text: ", err);
+            }
+          );
         }
-      );
+      });
     }
-  });
+  }
 </script>
