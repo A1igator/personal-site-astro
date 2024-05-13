@@ -5,6 +5,13 @@ const { frontmatter } = Astro.props;
 
 <SiteLayout title={frontmatter.title}>
   <article class="prose dark:prose-invert mt-20">
+    <h1>{frontmatter.title}</h1>
+    <img
+      src={frontmatter.img}
+      alt="Kendrick Lamar “Mr. Morale & the Big Steppers”"
+      width={700}
+      height={700}
+    />
     <slot />
   </article>
 </SiteLayout>
