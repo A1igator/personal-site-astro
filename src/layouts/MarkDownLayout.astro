@@ -6,7 +6,7 @@ const url = Astro.request.url;
 ---
 
 <SiteLayout title={frontmatter.title}>
-  <article class="prose dark:prose-invert text-justify mt-20">
+  <article class="prose dark:prose-invert mt-20">
     <div class="flex justify-between">
       <h1>{frontmatter.title}</h1>
       <div class="relative group">
@@ -30,7 +30,9 @@ const url = Astro.request.url;
       width={700}
       height={700}
     />
-    <slot />
+    <div class="text-justify">
+      <slot />
+    </div>
   </article>
 </SiteLayout>
 
