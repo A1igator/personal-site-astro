@@ -31,7 +31,12 @@ const url = Astro.request.url;
       width={700}
       height={700}
     />
-    <div class="text-justify">
+    <div>
+      <style>
+        slot::slotted(p) {
+          text-align: justify;
+        }
+      </style>
       <slot />
     </div>
   </article>
