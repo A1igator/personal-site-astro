@@ -11,5 +11,6 @@ export default defineConfig({
   output: "server",
   adapter: vercel({
     webAnalytics: { enabled: true },
+    includeFiles: ["./static/resume.pdf"],
   }),
 });
