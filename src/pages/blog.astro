@@ -1,7 +1,10 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 const allPosts = await Astro.glob("./blog/*.mdx");
+
+allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
 ---
+
 
 <SiteLayout title="Blog">
   <ul class="flex flex-col space-y-4">
