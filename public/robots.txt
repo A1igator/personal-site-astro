@@ -36,3 +36,5 @@ User-agent: img2dataset
 User-agent: omgili
 User-agent: omgilibot
 Disallow: /
+
+Sitemap: https://www.aliabdoli.com/sitemap-index.xml
