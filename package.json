@@ -10,14 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "3.1.2",
+    "@astrojs/mdx": "3.1.7",
     "@astrojs/rss": "4.0.7",
     "@astrojs/sitemap": "^3.1.6",
-    "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/vercel": "7.7.2",
+    "@astrojs/tailwind": "5.1.1",
+    "@astrojs/vercel": "7.8.1",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
-    "astro": "4.11.3",
+    "astro": "4.15.8",
     "astro-heroicons": "^2.1.1",
     "astro-icon": "^1.1.0",
     "sharp": "^0.33.5"
