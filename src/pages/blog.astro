@@ -7,7 +7,7 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
 
 
 <SiteLayout title="Blog">
-  <ul class="flex flex-col space-y-4 mt-20">
+  <ul class="flex flex-col space-y-4 mt-20 md:mt-0">
     {
       allPosts.map((post) => (
         <li class="flex flex-col space-y-2  ">
