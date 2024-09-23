@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 const url = Astro.request.url;
 ---
 
-<SiteLayout title={frontmatter.title}>
+<SiteLayout title={frontmatter.title} description={frontmatter.description}>
   <article class="w-full prose dark:prose-invert mt-20">
     <div class="flex justify-between">
       <h1>{frontmatter.title}</h1>
@@ -25,6 +25,7 @@ const url = Astro.request.url;
         >
       </div>
     </div>
+    <div class="text-xl">{frontmatter.description}</div>
     <img
       src={frontmatter.img}
       alt={frontmatter.title}
